@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ProjetasApi
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Casa
+Implementation-Vendor-Id: com.pablo
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/ProjetasApi/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
