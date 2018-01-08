@@ -1,0 +1,30 @@
+<center>
+	<h1>Lista de Veículos</h1>
+</center>
+<div align="center">
+	<div class="row">
+
+		<table ng-if='vehicles.length'>
+
+		  <thead>
+			<tr>
+			  <th>Veículos</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr ng-repeat="vehicle in vehicles">
+			  <td><strong>{{ vehicle.marca }}</strong></td>
+				<td><strong>{{ vehicle.modelo }}</strong></td>
+				<td><strong>{{ vehicle.cor }}</strong></td>
+				<td><strong>{{ vehicle.ano }}</strong></td>
+				<td><strong>{{ vehicle.preco }}</strong></td>
+				<td><strong>{{ vehicle.descricao }}</strong></td>
+				<td><strong>{{ vehicle.novo }}</strong></td>
+				<td><strong>{{ vehicle.dataCadastro }}</strong></td>
+				<td><strong>{{ vehicle.dataAlteracao }}</strong></td>
+
+			</tr>
+		</table>
+		  </tbody>
+	</div>
+</div>

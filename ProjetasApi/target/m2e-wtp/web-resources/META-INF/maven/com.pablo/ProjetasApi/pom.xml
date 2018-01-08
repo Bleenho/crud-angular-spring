@@ -29,7 +29,7 @@
             <version>2.5.0</version>
             <scope>compile</scope>
         </dependency>
-        
+
         <dependency>
 		    <groupId>io.swagger</groupId>
 		    <artifactId>swagger-annotations</artifactId>
@@ -48,6 +48,31 @@
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
         
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+        
+        
 	</dependencies>
-	   
+	
+	
+	   <build>
+	  	<finalName>projetasapi</finalName>
+	    <plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-war-plugin</artifactId>
+	        <configuration>
+	          <webResources>
+	            <resource>
+	              <directory>${project.build.sourceDirectory}</directory>
+	              <targetPath>sources</targetPath>
+	            </resource>
+	          </webResources>
+	        </configuration>
+	      </plugin>
+	    </plugins>
+	  </build>
 </project>

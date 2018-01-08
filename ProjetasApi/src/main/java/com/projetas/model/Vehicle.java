@@ -2,7 +2,9 @@ package com.projetas.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Vehicle implements Serializable{
 
@@ -10,7 +12,7 @@ public class Vehicle implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private int id;
 	private String marca;
 	private String modelo;
 	private String cor;
@@ -18,15 +20,17 @@ public class Vehicle implements Serializable{
 	private BigDecimal preco;
 	private String descricao;
 	private boolean novo;
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dataCadastro;
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dataAtualizacao;
 	
 	
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getMarca() {

@@ -1,0 +1,15 @@
+<center>
+	<h1>Novo Usuario</h1>
+</center>
+<div align="center">
+	<form ng-submit="addName()" >
+		<label>Nome do usuario</label>
+		<input type="text" ng-model="nome" />
+	
+		<div>
+			<input type="submit"  class="btn btn-success" value="SALVAR"/>
+		</div>
+		<span>{{ msg }}</span>
+
+	</form>
+</div>
