@@ -8,7 +8,7 @@
   - TomCat 7 >
   - Java 8
   
- ## Get Start
+ ## Get starting CRUD de veículos
   - Configurar no arquivo 'ProjetasApi/src/main/resources/application.propoerties' as informações da base utilizada;
   - Para gerar a api entre no diretório 'ProjetasApi/' e execute pelo terminal 'mvn clean install', o arquivo projasapi.war será gerado dentro da pasta 'target';
   - Inicializar tom cat (%TOMCAT_HOME/bin/startup.bat || %TOMCAT_HOME/bin/startup.sh)
