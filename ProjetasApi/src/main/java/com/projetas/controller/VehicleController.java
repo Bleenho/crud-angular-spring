@@ -3,8 +3,11 @@ package com.projetas.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +34,14 @@ public class VehicleController implements Serializable{
  
 	@RequestMapping(method = RequestMethod.GET)
     @ResponseBody
+    @CrossOrigin
     public List<Vehicle> findAll() {
         return service.findAll();
     }
  
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
+    @CrossOrigin
     public Vehicle findOne(@PathVariable("id") int id) {
         return service.findById(id);
     }
@@ -44,18 +49,21 @@ public class VehicleController implements Serializable{
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public int create(@RequestBody Vehicle vehicle) {
-        return service.save(vehicle);
+    @CrossOrigin
+    public int create(@Valid @RequestBody Vehicle vehicle) {
+        return service.save(vehicle).getId();
     }
   
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Vehicle vehicle) {
+    @CrossOrigin
+    public void update(@PathVariable( "id" ) Long id,@Valid @RequestBody Vehicle vehicle) {
         service.save(vehicle);
     }
   
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public void delete(@PathVariable("id") int id) {
         service.deleteById(id);
     }

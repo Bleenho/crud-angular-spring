@@ -55,5 +55,5 @@ app.directive( "mwConfirmClick", [
 ]);
 
 app.constant('SETTINGS_SYSTEM', {
-  vehiclesApi: '/projetasapi/vehicles'
+  vehiclesApi: 'http://localhost:8081/projetasapi/vehicles'
 })

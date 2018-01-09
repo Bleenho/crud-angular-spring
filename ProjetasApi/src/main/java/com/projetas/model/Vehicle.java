@@ -4,25 +4,45 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class Vehicle implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@NotNull
+	@Column(length = 40)
 	private String marca;
+	@NotNull
+	@Column(length = 50)
 	private String modelo;
+	@NotNull
+	@Column(length = 30)
 	private String cor;
+	@NotNull
+	@Min(1500)
 	private int ano;
+	@NotNull
 	private BigDecimal preco;
 	private String descricao;
+	@NotNull
 	private boolean novo;
-	@JsonFormat(pattern="dd-MM-yyyy")
+	@NotNull
 	private Date dataCadastro;
-	@JsonFormat(pattern="dd-MM-yyyy")
+	
 	private Date dataAtualizacao;
 	
 	

@@ -3,8 +3,6 @@ angular.module('app.controllers', [])
 //insert.html
 .controller('saveController', function($scope, $location, dataService, $routeParams, $rootScope, $route, $http, SETTINGS_SYSTEM){
 
-	$scope.msg = "";
-
 	var getVehicle = function(){
 		return {
 			id: $routeParams.idVehicle | 0 ,
@@ -18,14 +16,14 @@ angular.module('app.controllers', [])
 		}
 	}
 
-	var init = function(){
+	var loadVehicle = function(){
 		$scope.vehicle = getVehicle()
 		if($scope.vehicle.id != 0 ){
 
       dataService.vehicle.findById($scope.vehicle.id).then(function(response){
 					$scope.vehicle = response.data;
 				},function(error){
-					console.log("erro ao buscar veiculo "+$scope.vehicle.id+"[err]: " + error);
+					console.log("erro ao buscar veiculo "+$scope.vehicle.id+"[err]: " + JSON.stringify(error));
 			});
 
 		}
@@ -34,10 +32,10 @@ angular.module('app.controllers', [])
 	$scope.save = function(){
 		dataService.vehicle.save($scope.vehicle).then(function(result) {
     		if (result.data > 0) {
-					$location.url("/list");
-        }
-      },function(erro){
-				console.log("ERRO ao salvar veiculo->"+erro)
+				$location.url("/list");
+        	}
+        },function(erro){
+				console.log("ERRO ao salvar veiculo->"+JSON.stringify(erro))
 		});
 	}
 
@@ -45,7 +43,7 @@ angular.module('app.controllers', [])
 	  $location.path( path );
 	};
 
-	init();
+	loadVehicle();
 })
 
 
@@ -61,22 +59,22 @@ angular.module('app.controllers', [])
 	 	 }else{
 	 		 	$location.url("/save/" + idVehicle);
 	 	 }
-  }
+  	}
 
   $scope.delete = function(idVehicle){
     dataService.vehicle.delete(idVehicle).then(function(response){
 		 	  console.log("Deletado" );
         loadVehicles();
 		  },function(error){
-	      console.log("erro deletar veiculo [err]: " + error);
+	      console.log("erro deletar veiculo [err]: " + JSON.stringify(error));
 	  });
-  }
+  	}
 
 	var loadVehicles = function(){
     dataService.vehicle.findAll().then(function(response){
 		 	  $scope.vehicles = response.data;
 		  },function(error){
-	      console.log("erro ao buscar lista de veiculos [err]: " + error);
+	      console.log("erro ao buscar lista de veiculos [err]: " + JSON.stringify(error));
 	  });
 	}
 
