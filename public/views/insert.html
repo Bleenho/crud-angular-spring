@@ -10,29 +10,29 @@
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label>Marca</label>
-					<input type="text" class="form-control" maxlength="40" ng-model="vehicle.marca" />
+					<input type="text" class="form-control" maxlength="40" required ng-model="vehicle.marca" />
 				</div>
 				<div class="form-group col-md-4">
 					<label>Modelo</label>
-					<input type="text" class="form-control" maxlength="50" ng-model="vehicle.modelo" />
+					<input type="text" class="form-control" maxlength="50" required ng-model="vehicle.modelo" />
 				</div>
 				<div class="form-group col-md-4">
 					<label>Cor</label>
-					<input type="text" class="form-control" maxlength="30" ng-model="vehicle.cor" />
+					<input type="text" class="form-control" maxlength="30" required ng-model="vehicle.cor" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-4">
 					<label>Ano</label>
-					<input type="number" class="form-control" min="1500" maxlength="4" ng-model="vehicle.ano" />
+					<input type="number" class="form-control" min="1500" required maxlength="4" ng-model="vehicle.ano" />
 				</div>
 				<div class="form-group col-md-4">
 					<label>Preço</label>
-					<input type="text" class="form-control" ng-model="vehicle.preco" />
+					<input type="text" class="form-control" required ng-model="vehicle.preco" />
 				</div>
 				<div class="form-group col-md-4">
 					<label>Novo</label>
-					<select  class="form-control" data-ng-model="vehicle.novo" >
+					<select  class="form-control" data-ng-model="vehicle.novo" required >
 						<option selected value="true">Sim</option>
 						<option value="false">Não</option>
 					</select>

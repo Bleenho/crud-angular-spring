@@ -40,7 +40,7 @@ public class Vehicle implements Serializable{
 	private String descricao;
 	@NotNull
 	private boolean novo;
-	@NotNull
+	
 	private Date dataCadastro;
 	
 	private Date dataAtualizacao;
