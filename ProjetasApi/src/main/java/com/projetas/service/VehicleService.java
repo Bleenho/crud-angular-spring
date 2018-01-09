@@ -1,6 +1,7 @@
 package com.projetas.service;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class VehicleService implements Serializable{
         super();
     }
 	public int save(Vehicle vehicle) {
+		vehicle.setDataAtualizacao(new Date());
+		if(vehicle.getId() == 0) {
+			vehicle.setDataCadastro(new Date());
+		}
 		return dao.save(vehicle);
 	}
 	

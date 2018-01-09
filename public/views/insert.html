@@ -1,15 +1,55 @@
-<center>
-	<h1>Novo Usuario</h1>
-</center>
-<div align="center">
-	<form ng-submit="addName()" >
-		<label>Nome do usuario</label>
-		<input type="text" ng-model="nome" />
-	
-		<div>
-			<input type="submit"  class="btn btn-success" value="SALVAR"/>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3>Veículo</h3>
+		<div align="right">
+				<button class="btn btn-primary" ng-click="go('/list')">Voltar</button>
 		</div>
-		<span>{{ msg }}</span>
+	</div>
+	<div class="panel-body">
+		<form ng-submit="save()" >
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label>Marca</label>
+					<input type="text" class="form-control" maxlength="40" ng-model="vehicle.marca" />
+				</div>
+				<div class="form-group col-md-4">
+					<label>Modelo</label>
+					<input type="text" class="form-control" maxlength="50" ng-model="vehicle.modelo" />
+				</div>
+				<div class="form-group col-md-4">
+					<label>Cor</label>
+					<input type="text" class="form-control" maxlength="30" ng-model="vehicle.cor" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label>Ano</label>
+					<input type="number" class="form-control" min="1500" maxlength="4" ng-model="vehicle.ano" />
+				</div>
+				<div class="form-group col-md-4">
+					<label>Preço</label>
+					<input type="text" class="form-control" ng-model="vehicle.preco" />
+				</div>
+				<div class="form-group col-md-4">
+					<label>Novo</label>
+					<select  class="form-control" data-ng-model="vehicle.novo" >
+						<option selected value="true">Sim</option>
+						<option value="false">Não</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label>Descrição</label>
+					<textarea class="form-control" ng-model="vehicle.descricao" >
+					</textarea>
+				</div>
+			</div>
+				<div align="right">
+					<input type="submit"  class="btn btn-success" value="Salvar"/>
+				</div>
+				<span ng-model="msg"></span>
 
-	</form>
+		</form>
+	</div>
 </div>

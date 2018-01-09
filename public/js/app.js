@@ -7,7 +7,11 @@ app.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/save", {
         templateUrl : "./views/insert.html",
-        controller: 'insertController'
+        controller: 'saveController'
+    })
+    .when("/save/:idVehicle", {
+        templateUrl : "./views/insert.html",
+        controller: 'saveController'
     })
     .when("/list", {
         templateUrl : "./views/list.html",
@@ -23,6 +27,32 @@ app.config(function($routeProvider, $locationProvider) {
 app.run(['$rootScope',function($rootScope){
 
 }]);
+
+app.filter('booleano', function() {
+  return function(input) {
+    return input ? "Sim" : "Não"
+  }
+});
+
+app.directive( "mwConfirmClick", [
+  function( ) {
+    return {
+      priority: -1,
+      restrict: 'A',
+      scope: { confirmFunction: "&mwConfirmClick" },
+      link: function( scope, element, attrs ){
+        element.bind( 'click', function( e ){
+          // message defaults to "Are you sure?"
+          var message = attrs.mwConfirmClickMessage ? attrs.mwConfirmClickMessage : "Are you sure?";
+          // confirm() requires jQuery
+          if( confirm( message ) ) {
+            scope.confirmFunction();
+          }
+        });
+      }
+    }
+  }
+]);
 
 app.constant('SETTINGS_SYSTEM', {
   vehiclesApi: '/projetasapi/vehicles'

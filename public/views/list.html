@@ -1,30 +1,51 @@
-<center>
-	<h1>Lista de Veículos</h1>
-</center>
-<div align="center">
-	<div class="row">
-
-		<table ng-if='vehicles.length'>
-
-		  <thead>
-			<tr>
-			  <th>Veículos</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			<tr ng-repeat="vehicle in vehicles">
-			  <td><strong>{{ vehicle.marca }}</strong></td>
-				<td><strong>{{ vehicle.modelo }}</strong></td>
-				<td><strong>{{ vehicle.cor }}</strong></td>
-				<td><strong>{{ vehicle.ano }}</strong></td>
-				<td><strong>{{ vehicle.preco }}</strong></td>
-				<td><strong>{{ vehicle.descricao }}</strong></td>
-				<td><strong>{{ vehicle.novo }}</strong></td>
-				<td><strong>{{ vehicle.dataCadastro }}</strong></td>
-				<td><strong>{{ vehicle.dataAlteracao }}</strong></td>
-
-			</tr>
-		</table>
-		  </tbody>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3>Lista de veículos</h3>
+		<div align="right">
+				<button class="btn btn-primary" ng-click="go('/save')">Novo</button>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+		  	<thead>
+					<tr>
+							<th><strong>#</strong></th>
+						  <th><strong>Marca</strong></th>
+							<th><strong>Modelo</strong></th>
+							<th><strong>Cor</strong></th>
+							<th><strong>Ano</strong></th>
+							<th><strong>Preço</strong></th>
+							<th><strong>Descrição</strong></th>
+							<th><strong>Novo</strong></th>
+							<th><strong>Cadastro</strong></th>
+							<th><strong>Ultima Ação</strong></th>
+							<th><strong>Ações</strong></th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr ng-repeat="vehicle in vehicles">
+							<td>{{ vehicle.id }}</td>
+							<td>{{ vehicle.marca }}</td>
+							<td>{{ vehicle.modelo }}</td>
+							<td>{{ vehicle.cor }}</td>
+							<td>{{ vehicle.ano }}</td>
+							<td>{{ vehicle.preco | number:2}}</td>
+							<td>{{ vehicle.descricao }}</td>
+							<td>{{ vehicle.novo | booleano}}</td>
+							<td>{{ vehicle.dataCadastro | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+							<td>{{ vehicle.dataAtualizacao | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+							<td>
+								<div class="btn-group" role="group" aria-label="...">
+								  <button  ng-click="go('/save/' + vehicle.id)" class="btn btn-warning">Editar</button>
+								  <button   mw-confirm-click="delete(vehicle.id)"
+											mw-confirm-click-message="Deseja excluir o veículo?"
+											class="btn btn-danger">Exluir</button>
+								</div>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

@@ -28,9 +28,9 @@ public class VehicleMock implements IVehicleRepository{
 		veic.setAno(2019);
 		veic.setDataAtualizacao(new Date());
 		veic.setDataCadastro(new Date());
-		veic.setDescricao("Polo 2.0");
+		veic.setDescricao("Carro completo");
 		veic.setMarca("Volkswagen");
-		veic.setModelo("Hatch");
+		veic.setModelo("Polo 2.0");
 		veic.setNovo(true);
 		veic.setPreco(new BigDecimal("60000.00"));
 		this.vehicles.put(1, veic);
@@ -41,10 +41,10 @@ public class VehicleMock implements IVehicleRepository{
 		veic.setAno(2001);
 		veic.setDataAtualizacao(new Date());
 		veic.setDataCadastro(new Date());
-		veic.setDescricao("Gol");
+		veic.setDescricao("Ar,Direção");
 		veic.setMarca("Volkswagen");
-		veic.setModelo("Hatch");
-		veic.setNovo(true);
+		veic.setModelo("Gol");
+		veic.setNovo(false);
 		veic.setPreco(new BigDecimal("10000.00"));
 		this.vehicles.put(2, veic);
 	}
