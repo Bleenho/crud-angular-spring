@@ -15,6 +15,7 @@ angular.module('app.controllers', [])
 			novo: true
 		}
 	}
+	
 
 	var loadVehicle = function(){
 		$scope.vehicle = getVehicle()

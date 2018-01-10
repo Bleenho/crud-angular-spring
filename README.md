@@ -1,18 +1,58 @@
-# Projetas
+# Crud veículo
+> Controle de veículo
 
-## Tecnologias
-  - Angular JS
-  - Spring boot
-  - Mysql ou Postgres
-  - Maven 3.0
-  - TomCat 7 >
-  - Java 8
-  
- ## Get starting CRUD de veículos
-  - Configurar no arquivo 'ProjetasApi/src/main/resources/application.properties' as informações da base utilizada;
-  - Para gerar a api entre no diretório 'ProjetasApi/' e execute pelo terminal 'mvn clean install', o arquivo projasapi.war será gerado dentro da pasta 'target';
-  - Inicializar tom cat (%TOMCAT_HOME%/bin/startup.bat || %TOMCAT_HOME%/bin/startup.sh)
-  - Inserir o arquivo da api 'projasapi.war' dentro do diretório 'webapp' do tomcat (%TOMCAT_HOME%/webapp/)
-  - Tomcat realiza atualização de tabelas na base de dados e disponibiliza os end-points da api gerada (swagger -> host:port/projetasapi/)
-  - Inserir a pasta 'public' (front-end) no mesmo diretório (%TOMCAT_HOME%/webapp/)
-  - Fron-end disponível na seguinte url -> host:port/public/
+O projeto convém de uma api (ProjetasApi)que controla veículos como visulizar , inserir, alterar dados e deletar do banco de dados MYSQL (CRUD), 
+sendo consumido pelo front-end (public) desenvolvido em Angularjs.
+
+### Requisitos
+* Java 8
+* Maven 3
+* Tomcat 7>
+* Mysql ou Postgres
+
+![](../header.png)
+
+## Configuração da base
+
+* No arquivo '/ProjetasApi/src/main/resources/application.properties' possui configurações de base Mysql e Postgres, desconmentar e configurar a adequada.
+
+## Instalação
+
+1 - Dentro do projeto ProjectasApi executar o comando:
+
+```sh
+mvn clean install
+```
+
+2 - Mover arquivo  'ProjetasApi/target/projetasapi.war' Para '%TOMCAT_HOME%/webapp/projetasapi.war'
+
+3 - Mover arquivo  'public' Para '%TOMCAT_HOME%/webapp/public'
+
+4 - Iniciar Tomcat
+	* Sem alterações -> %TOMCAT_HOME%/bin/startup.bat(sh) 
+
+## Exemplo de uso
+
+O Tomcat disponibiliza (padrão) na porta 8080
+
+### Swagger da API
+```sh
+http://localhost:8080/projetasapi
+```
+
+### Front-end manipulando o swagger
+```sh
+http://localhost:8080/public
+```
+
+
+## Histórico de lançamentos
+
+* 0.1.0
+    * O primeiro lançamento adequado
+* 0.0.1
+    * Trabalho em andamento
+
+## Meta
+
+Pablo Ribeiro– [@Pablo] – pablo.developerweb@gmail.com
